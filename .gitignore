@@ -1,0 +1,9 @@
+# OS
+.DS_Store
+*.swp
+*.swog
+*.swl
+*.swm
+*.swn
+.vscode
+.idea
