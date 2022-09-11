@@ -1,6 +1,6 @@
 # Local Dymension
 
-Instructions for locally setup, building and running of dymension rollup.
+Instructions for locally setup, building and running of dymension rollapp.
 
 ## Set up work environment
 
@@ -35,7 +35,7 @@ export P2P_ADDRESS="0.0.0.0:36656"
 ./scripts/run_local.sh
 ```
 
-## Setup and build dymension rollup
+## Setup and build dymension rollapp
 
 Scaffold chain:
 
@@ -53,31 +53,31 @@ go mod tidy && go mod download
 ignite chain build
 ```
 
-Build the checkers module by [this instructions](/checkers_rollup/build_module.md)
+Build the checkers module by [this instructions](/checkers/build_module.md)
 
-Init checkers-rollup chain:
+Init checkers-rollapp chain:
 
 ```sh
 export KEY_PLAYER_1="player1"
 export KEY_PLAYER_2="player2"
-export ROLLAP_ID="checkers"
+export ROLLAPP_ID="checkers"
 
 checkersd tendermint unsafe-reset-all
-checkersd init checkers-test --chain-id "$ROLLAP_ID"
+checkersd init checkers-test --chain-id "$ROLLAPP_ID"
 checkersd keys add "$KEY_PLAYER_1"
 checkersd keys add "$KEY_PLAYER_2"
 checkersd add-genesis-account "$(checkersd keys show "$KEY_PLAYER_1" -a)" 100000000000stake
 checkersd add-genesis-account "$(checkersd keys show "$KEY_PLAYER_2" -a)" 100000000000stake
-checkersd gentx "$KEY_PLAYER_1" 100000000stake --chain-id "$ROLLAP_ID"
+checkersd gentx "$KEY_PLAYER_1" 100000000stake --chain-id "$ROLLAPP_ID"
 checkersd collect-gentxs
 ```
 
-## Deploy dymension rollup
+## Deploy dymension rollapp
 
-Create rollup entity in the dymension settlement
+Create rollapp entity in the dymension settlement
 
 ```sh
-dymd tx rollapp create-rollapp "$ROLLAP_ID" stamp1 "genesis-path/1" 3 100 '{"Addresses":[]}' \
+dymd tx rollapp create-rollapp "$ROLLAPP_ID" stamp1 "genesis-path/1" 3 100 '{"Addresses":[]}' \
   --from "$KEY_NAME" \
   --chain-id "$CHAIN_ID" \
   --keyring-backend test
@@ -90,18 +90,18 @@ export DESCRIPTION="{\"Moniker\":\"$MONIKER_NAME\",\"Identity\":\"\",\"Website\"
 export CREATOR_ADDRESS="$(dymd keys show "$KEY_NAME" -a --keyring-backend test)"
 export CREATOR_PUB_KEY="$(dymd keys show "$KEY_NAME" -p --keyring-backend test)"
 
-dymd tx sequencer create-sequencer "$CREATOR_ADDRESS" "$CREATOR_PUB_KEY" "$ROLLAP_ID" "$DESCRIPTION" \
+dymd tx sequencer create-sequencer "$CREATOR_ADDRESS" "$CREATOR_PUB_KEY" "$ROLLAPP_ID" "$DESCRIPTION" \
   --from "$KEY_NAME" \
   --chain-id "$CHAIN_ID" \
   --keyring-backend test
 ```
 
-## Run dymension rollup
+## Run dymension rollapp
 
-Run the checkers-rollup chain:
+Run the checkers-rollapp chain:
 
 ```sh
-export SETTLEMENT_CONFIG="{\"node_address\": \"http:\/\/$SETTLEMENT_RPC\", \"rollapp_id\": \"$ROLLAP_ID\", \"dym_account_name\": \"$KEY_NAME\", \"keyring_home_dir\": \"$HOME/dymension/\", \"keyring_backend\":\"test\"}"
+export SETTLEMENT_CONFIG="{\"node_address\": \"http:\/\/$SETTLEMENT_RPC\", \"rollapp_id\": \"$ROLLAPP_ID\", \"dym_account_name\": \"$KEY_NAME\", \"keyring_home_dir\": \"$HOME/dymension/\", \"keyring_backend\":\"test\"}"
 export NAMESPACE_ID=000000000000FFFF
 
 checkersd start --dymint.aggregator true \
@@ -113,6 +113,6 @@ checkersd start --dymint.aggregator true \
   --dymint.block_time 1s
 ```
 
-## Interact with rollup
+## Interact with rollapp
 
-Interact with the checkers rollup using the [following examples](/checkers_rollup/interaction.md)
+Interact with the checkers rollapp using the [following examples](/checkers/interaction.md)
