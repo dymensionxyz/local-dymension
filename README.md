@@ -37,23 +37,26 @@ export P2P_ADDRESS="0.0.0.0:36656"
 
 ## Setup and build dymension rollapp
 
-Scaffold chain:
+Build chain using script:
 
 ```sh
-ignite scaffold chain github.com/anonymous/checkers && cd checkers
+export WORKSPACE_PATH=$HOME/workspace
+
+cd build_chain_script && sh build.sh
 ```
+
+Or build it manually using [this instructions](/checkers/build_chain.md)
 
 Setting up rdk and dymint:
 
 ```sh
+cd "$WORKSPACE_PATH/checkers"
 go mod edit -replace github.com/cosmos/cosmos-sdk=github.com/dymensionxyz/rdk@ffe24a21eca363c3b33266aaadda079c5f15d244
 git config --global url.git@github.com:.insteadOf https://github.com/
 export GOPRIVATE=github.com/dymensionxyz/*
 go mod tidy && go mod download
 ignite chain build
 ```
-
-Build the checkers module by [this instructions](/checkers/build_module.md)
 
 Init checkers-rollapp chain:
 
