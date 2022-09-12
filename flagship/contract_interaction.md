@@ -1,5 +1,5 @@
 # Contract Interaction
-Deploy and interact with wasm-contract via the dymension-wasm rollup.
+Deploy and interact with wasm-contract via the dymension-wasm rollapp.
 
 ## Contract Deployment
 Deploy the smart contract and fetch the deployment transaction hash:

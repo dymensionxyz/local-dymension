@@ -1,5 +1,5 @@
 # Dymension-Wasm Node
-Running dymension-wasm optimistic rollup built using the RDK and dymint.
+Instructions for running locally dymension-wasm optimistic rollapp built using the RDK and dymint.
 
 ## Installation
 Requires [Go version v1.18+](https://golang.org/doc/install).
