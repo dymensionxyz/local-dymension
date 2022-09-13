@@ -29,6 +29,8 @@ export CHAIN_ID="local-testnet"
 export KEY_NAME="local-user"
 export MONIKER_NAME="local"
 export SETTLEMENT_RPC="0.0.0.0:36657"
+export GRPC_ADDRESS="0.0.0.0:8090"
+export GRPC_WEB_ADDRESS="0.0.0.0:8091"
 export P2P_ADDRESS="0.0.0.0:36656"
 
 sh scripts/setup_local.sh
