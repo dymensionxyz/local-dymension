@@ -42,7 +42,7 @@ Build chain using script:
 ```sh
 export WORKSPACE_PATH=$HOME/workspace
 
-cd build_chain_script && sh build.sh
+cd checkers/build_chain_script && sh build.sh
 ```
 
 Or build it manually using [these instructions](/checkers/build_chain.md)
