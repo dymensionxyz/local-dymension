@@ -39,7 +39,7 @@ sh scripts/run_local.sh
 Build chain using script:
 
 ```sh
-git git@github.com:dymensionxyz/local-dymension.git && cd local-dymension
+git clone git@github.com:dymensionxyz/local-dymension.git && cd local-dymension
 
 export WORKSPACE_PATH=$HOME/workspace
 
