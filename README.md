@@ -58,7 +58,7 @@ Setting up rdk and dymint:
 
 ```sh
 cd "$WORKSPACE_PATH/checkers"
-go mod edit -replace github.com/cosmos/cosmos-sdk=github.com/dymensionxyz/rdk@74667ebb337114bee3926b3345f5cd166e81f87c
+go mod edit -replace github.com/cosmos/cosmos-sdk=github.com/dymensionxyz/rdk@ffe24a21eca363c3b33266aaadda079c5f15d244
 git config --global url.git@github.com:.insteadOf https://github.com/
 export GOPRIVATE=github.com/dymensionxyz/*
 go mod tidy && go mod download
@@ -125,7 +125,7 @@ checkersd start --dymint.aggregator true \
   --dymint.settlement_config "$SETTLEMENT_CONFIG" \
   --dymint.block_batch_size 1000 \
   --dymint.namespace_id "$NAMESPACE_ID" \
-  --dymint.block_time 1s
+  --dymint.block_time 0.5s
 ```
 
 ## Interact with rollapp
