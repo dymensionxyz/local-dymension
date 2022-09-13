@@ -22,7 +22,7 @@ Clone the settlement repository:
 git clone git@github.com:dymensionxyz/dymension.git && cd dymension
 ```
 
-Build, init and run the chain:
+Build and init the chain:
 
 ```sh
 export CHAIN_ID="local-testnet"
@@ -31,6 +31,12 @@ export MONIKER_NAME="local"
 export SETTLEMENT_RPC="0.0.0.0:36657"
 export P2P_ADDRESS="0.0.0.0:36656"
 
+sh scripts/setup_local.sh
+```
+
+Run the chain:
+
+```sh
 sh scripts/run_local.sh
 ```
 
