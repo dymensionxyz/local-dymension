@@ -116,7 +116,7 @@ Run the checkers-rollapp chain:
 
 ```sh
 SETTLEMENT_RPC="0.0.0.0:36657"
-SETTLEMENT_CONFIG="{\"node_address\": \"http:\/\/$SETTLEMENT_RPC\", \"rollapp_id\": \"$ROLLAPP_ID\", \"dym_account_name\": \"$KEY_NAME\", \"keyring_home_dir\": \"$HOME/dymension/\", \"keyring_backend\":\"test\"}"
+SETTLEMENT_CONFIG="{\"node_address\": \"http:\/\/$SETTLEMENT_RPC\", \"rollapp_id\": \"$ROLLAPP_ID\", \"dym_account_name\": \"$KEY_NAME\", \"keyring_home_dir\": \"$HOME/.dymension/\", \"keyring_backend\":\"test\"}"
 NAMESPACE_ID=000000000000FFFF
 
 checkersd start --dymint.aggregator true \
@@ -125,7 +125,7 @@ checkersd start --dymint.aggregator true \
   --dymint.settlement_config "$SETTLEMENT_CONFIG" \
   --dymint.block_batch_size 1000 \
   --dymint.namespace_id "$NAMESPACE_ID" \
-  --dymint.block_time 1s
+  --dymint.block_time 0.5s
 ```
 
 ## Interact with rollapp
