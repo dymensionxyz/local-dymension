@@ -22,7 +22,7 @@ Clone the settlement repository:
 git clone git@github.com:dymensionxyz/dymension.git && cd dymension
 ```
 
-Build, init and run the chain:
+Build and init the chain:
 
 ```sh
 export CHAIN_ID="local-testnet"
@@ -31,6 +31,12 @@ export MONIKER_NAME="local"
 export SETTLEMENT_RPC="0.0.0.0:36657"
 export P2P_ADDRESS="0.0.0.0:36656"
 
+sh scripts/setup_local.sh
+```
+
+Run the chain:
+
+```sh
 sh scripts/run_local.sh
 ```
 
@@ -52,7 +58,7 @@ Setting up rdk and dymint:
 
 ```sh
 cd "$WORKSPACE_PATH/checkers"
-go mod edit -replace github.com/cosmos/cosmos-sdk=github.com/dymensionxyz/rdk@ffe24a21eca363c3b33266aaadda079c5f15d244
+go mod edit -replace github.com/cosmos/cosmos-sdk=github.com/dymensionxyz/rdk@74667ebb337114bee3926b3345f5cd166e81f87c
 git config --global url.git@github.com:.insteadOf https://github.com/
 export GOPRIVATE=github.com/dymensionxyz/*
 go mod tidy && go mod download
