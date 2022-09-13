@@ -25,14 +25,13 @@ git clone git@github.com:dymensionxyz/dymension.git && cd dymension
 Build, init and run the chain:
 
 ```sh
-# Look at the script to check which parameters can be updated
 export CHAIN_ID="local-testnet"
 export KEY_NAME="local-user"
 export MONIKER_NAME="local"
 export SETTLEMENT_RPC="0.0.0.0:36657"
 export P2P_ADDRESS="0.0.0.0:36656"
 
-./scripts/run_local.sh
+sh scripts/run_local.sh
 ```
 
 ## Setup and build dymension rollapp
@@ -40,6 +39,8 @@ export P2P_ADDRESS="0.0.0.0:36656"
 Build chain using script:
 
 ```sh
+git clone git@github.com:dymensionxyz/local-dymension.git && cd local-dymension
+
 export WORKSPACE_PATH=$HOME/workspace
 
 cd checkers/build_chain_script && sh build.sh
@@ -61,9 +62,9 @@ ignite chain build
 Init checkers-rollapp chain:
 
 ```sh
-export KEY_PLAYER_1="player1"
-export KEY_PLAYER_2="player2"
-export ROLLAPP_ID="checkers"
+KEY_PLAYER_1="player1"
+KEY_PLAYER_2="player2"
+ROLLAPP_ID="checkers"
 
 checkersd tendermint unsafe-reset-all
 checkersd init checkers-test --chain-id "$ROLLAPP_ID"
@@ -80,6 +81,9 @@ checkersd collect-gentxs
 Create rollapp entity in the dymension settlement
 
 ```sh
+CHAIN_ID="local-testnet"
+KEY_NAME="local-user"
+
 dymd tx rollapp create-rollapp "$ROLLAPP_ID" stamp1 "genesis-path/1" 3 100 '{"Addresses":[]}' \
   --from "$KEY_NAME" \
   --chain-id "$CHAIN_ID" \
@@ -89,9 +93,10 @@ dymd tx rollapp create-rollapp "$ROLLAPP_ID" stamp1 "genesis-path/1" 3 100 '{"Ad
 Initialize and attach a Sequencer:
 
 ```sh
-export DESCRIPTION="{\"Moniker\":\"$MONIKER_NAME\",\"Identity\":\"\",\"Website\":\"\",\"SecurityContact\":\"\",\"Details\":\"\"}";
-export CREATOR_ADDRESS="$(dymd keys show "$KEY_NAME" -a --keyring-backend test)"
-export CREATOR_PUB_KEY="$(dymd keys show "$KEY_NAME" -p --keyring-backend test)"
+MONIKER_NAME="local"
+DESCRIPTION="{\"Moniker\":\"$MONIKER_NAME\",\"Identity\":\"\",\"Website\":\"\",\"SecurityContact\":\"\",\"Details\":\"\"}";
+CREATOR_ADDRESS="$(dymd keys show "$KEY_NAME" -a --keyring-backend test)"
+CREATOR_PUB_KEY="$(dymd keys show "$KEY_NAME" -p --keyring-backend test)"
 
 dymd tx sequencer create-sequencer "$CREATOR_ADDRESS" "$CREATOR_PUB_KEY" "$ROLLAPP_ID" "$DESCRIPTION" \
   --from "$KEY_NAME" \
@@ -104,8 +109,9 @@ dymd tx sequencer create-sequencer "$CREATOR_ADDRESS" "$CREATOR_PUB_KEY" "$ROLLA
 Run the checkers-rollapp chain:
 
 ```sh
-export SETTLEMENT_CONFIG="{\"node_address\": \"http:\/\/$SETTLEMENT_RPC\", \"rollapp_id\": \"$ROLLAPP_ID\", \"dym_account_name\": \"$KEY_NAME\", \"keyring_home_dir\": \"$HOME/dymension/\", \"keyring_backend\":\"test\"}"
-export NAMESPACE_ID=000000000000FFFF
+SETTLEMENT_RPC="0.0.0.0:36657"
+SETTLEMENT_CONFIG="{\"node_address\": \"http:\/\/$SETTLEMENT_RPC\", \"rollapp_id\": \"$ROLLAPP_ID\", \"dym_account_name\": \"$KEY_NAME\", \"keyring_home_dir\": \"$HOME/dymension/\", \"keyring_backend\":\"test\"}"
+NAMESPACE_ID=000000000000FFFF
 
 checkersd start --dymint.aggregator true \
   --dymint.da_layer mock \
