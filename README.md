@@ -45,7 +45,7 @@ export WORKSPACE_PATH=$HOME/workspace
 cd build_chain_script && sh build.sh
 ```
 
-Or build it manually using [this instructions](/checkers/build_chain.md)
+Or build it manually using [these instructions](/checkers/build_chain.md)
 
 Setting up rdk and dymint:
 
