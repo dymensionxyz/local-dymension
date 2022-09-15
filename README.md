@@ -6,17 +6,11 @@ Instructions for locally setup, building and running of dymension rollapp.
 
 Install go (version v1.18+): https://golang.org/doc/install.
 
-Install docker: https://docs.docker.com/engine/install/
-
 Install ignite: https://docs.ignite.com/guide/install
-
-Install node: https://nodejs.org/en/download/
-
-Install rust: https://www.rust-lang.org/tools/install
 
 ## Run dymension settlement
 
-Clone the settlement repository:
+Clone the dymension settlement repository:
 
 ```sh
 git clone git@github.com:dymensionxyz/dymension.git && cd dymension
@@ -44,7 +38,7 @@ sh scripts/run_local.sh
 
 ## Setup and build dymension rollapp
 
-Build chain using script:
+Build the chain:
 
 ```sh
 git clone git@github.com:dymensionxyz/local-dymension.git && cd local-dymension
@@ -56,11 +50,11 @@ cd checkers/build_chain_script && sh build.sh
 
 Or build it manually using [these instructions](/checkers/build_chain.md)
 
-Setting up rdk and dymint:
+Setting up the RDK:
 
 ```sh
 cd "$WORKSPACE_PATH/checkers"
-go mod edit -replace github.com/cosmos/cosmos-sdk=github.com/dymensionxyz/rdk@74667ebb337114bee3926b3345f5cd166e81f87c
+go mod edit -replace github.com/cosmos/cosmos-sdk=github.com/dymensionxyz/rdk@v0.1.0-sdk-v0.45.4-dymint-v0.1.0 
 git config --global url.git@github.com:.insteadOf https://github.com/
 export GOPRIVATE=github.com/dymensionxyz/*
 go mod tidy && go mod download
@@ -84,7 +78,7 @@ checkersd gentx "$KEY_PLAYER_1" 100000000stake --chain-id "$ROLLAPP_ID"
 checkersd collect-gentxs
 ```
 
-## Deploy dymension rollapp
+## Register the rollapp on the dymension settlement layer
 
 Create rollapp entity in the dymension settlement
 
@@ -98,7 +92,7 @@ dymd tx rollapp create-rollapp "$ROLLAPP_ID" stamp1 "genesis-path/1" 3 100 '{"Ad
   --keyring-backend test
 ```
 
-Initialize and attach a Sequencer:
+Initialize and attach a Sequencer to the rollapp:
 
 ```sh
 MONIKER_NAME="local"
@@ -125,7 +119,7 @@ checkersd start --dymint.aggregator true \
   --dymint.da_layer mock \
   --dymint.settlement_layer dymension \
   --dymint.settlement_config "$SETTLEMENT_CONFIG" \
-  --dymint.block_batch_size 1000 \
+  --dymint.block_batch_size 100 \
   --dymint.namespace_id "$NAMESPACE_ID" \
   --dymint.block_time 0.5s
 ```
