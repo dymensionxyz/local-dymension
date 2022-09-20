@@ -5,7 +5,7 @@ Instructions for running locally dymension-wasm optimistic rollapp built using t
 Requires [Go version v1.18+](https://golang.org/doc/install).
 
 ```sh
-git clone git@github.com:dymensionxyz/dymension-flagship.git && cd dymension-flagship
+git clone git@github.com:dymensionxyz/wasm.git && cd wasm
 
 git config --global url.git@github.com:.insteadOf https://github.com/
 
