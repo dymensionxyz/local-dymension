@@ -23,4 +23,6 @@ export CHAIN_ID=test-chain
 
 ./scripts/setup_and_run_node.sh
 ```
+*For running the settlement layer without mock, check the [following instructions](../README.md)*
+
 
