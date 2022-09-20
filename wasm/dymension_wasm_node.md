@@ -9,7 +9,7 @@ git clone git@github.com:dymensionxyz/wasm.git && cd wasm
 
 git config --global url.git@github.com:.insteadOf https://github.com/
 
-export GOPRIVATE=github.com/dymensionxyz/*g
+export GOPRIVATE=github.com/dymensionxyz/*
 
 go mod tidy && go mod download && make install
 ```
