@@ -53,7 +53,7 @@ Or build it manually using [these instructions](/checkers/build_chain.md)
 Setting up the RDK:
 
 ```sh
-cd "$WORKSPACE_PATH/checkers"g
+cd "$WORKSPACE_PATH/checkers"
 go mod edit -replace github.com/cosmos/cosmos-sdk=github.com/dymensionxyz/rdk@v0.1.0-alpha
 git config --global url.git@github.com:.insteadOf https://github.com/
 export GOPRIVATE=github.com/dymensionxyz/*
