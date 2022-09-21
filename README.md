@@ -4,7 +4,7 @@ Instructions for locally setup, building and running of dymension rollapp.
 
 ## Set up work environment
 
-Install go (version v1.18+): https://golang.org/doc/install.
+Install go (version v1.18): https://golang.org/doc/install.
 
 Install ignite: https://docs.ignite.com/guide/install
 
