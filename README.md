@@ -55,8 +55,6 @@ Setting up the RDK:
 ```sh
 cd "$WORKSPACE_PATH/checkers"
 go mod edit -replace github.com/cosmos/cosmos-sdk=github.com/dymensionxyz/rdk@v0.1.0-alpha
-git config --global url.git@github.com:.insteadOf https://github.com/
-export GOPRIVATE=github.com/dymensionxyz/*
 go mod tidy && go mod download
 ignite chain build
 ```
@@ -119,9 +117,9 @@ checkersd start --dymint.aggregator true \
   --dymint.da_layer mock \
   --dymint.settlement_layer dymension \
   --dymint.settlement_config "$SETTLEMENT_CONFIG" \
-  --dymint.block_batch_size 100 \
+  --dymint.block_batch_size 500 \
   --dymint.namespace_id "$NAMESPACE_ID" \
-  --dymint.block_time 0.5s
+  --dymint.block_time 0.2s
 ```
 
 ## Interact with rollapp
