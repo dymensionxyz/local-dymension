@@ -13,7 +13,7 @@ Install ignite: https://docs.ignite.com/guide/install
 Clone the dymension settlement repository:
 
 ```sh
-git clone git@github.com:dymensionxyz/dymension.git && cd dymension
+git clone git@github.com:dymensionxyz/dymension.git --branch v0.1.0-alpha && cd dymension
 ```
 
 Build and init the chain:
