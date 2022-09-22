@@ -7,7 +7,7 @@ Instructions for running locally dymension-ethermint optimistic rollapp built us
 Requires [Go version v1.18+](https://golang.org/doc/install).
 
 ```sh
-git clone git@github.com:dymensionxyz/ethermint.git && cd ethermint
+git clone git@github.com:dymensionxyz/ethermint.git --branch v0.1.0-alpha && cd ethermint
 
 git config --global url.git@github.com:.insteadOf https://github.com/
 
@@ -41,7 +41,9 @@ Run the Truffle tests using the dymension-ethermint node:
 ```sh
 truffle test --network development
 ```
+
 At the end, you should see the following success message:
+
 ```sh
 Using network 'development'.
 
