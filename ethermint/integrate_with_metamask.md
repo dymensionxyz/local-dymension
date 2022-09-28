@@ -2,13 +2,13 @@
 
 Instructions for adding the dymension-ethermint network to the metamask and sync an account.
 
-# Init and start node
+## Init and start node
 
 Init and start dymension-ethermint node by following [these instructions](./dymension_ethermint_node.md)
 
 ## Adding a New Network
 
-Open the MetaMask extension on your browser. Then click the top right circle and go to Settings > Networks > Add Network
+Open the metamask extension on your browser. Then click the top right circle and go to Settings > Networks > Add Network
 and fill the form as shown below.
 
 ```yaml
@@ -21,7 +21,7 @@ Chain ID: 9001
 Currency Symbol (optional): PHOTON
 ```
 
-## Import Account to Metamask
+## Import Account to MetaMask
 
 Click again on the top right circle and select Import Account (make sure that the `Private Key` option is selected).
 
