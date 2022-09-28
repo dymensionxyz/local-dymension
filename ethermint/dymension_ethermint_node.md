@@ -7,7 +7,7 @@ Instructions for running locally dymension-ethermint optimistic rollapp built us
 Requires [Go version v1.18+](https://golang.org/doc/install).
 
 ```sh
-git clone git@github.com:dymensionxyz/ethermint.git --branch v0.1.0-alpha && cd ethermint
+git clone git@github.com:dymensionxyz/ethermint.git --branch v0.1.1-alpha && cd ethermint
 
 go mod tidy && go mod download && make install
 ```
