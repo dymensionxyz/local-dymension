@@ -1,4 +1,4 @@
-# Connect your Metamask wallet with Ethermint.
+# Connect your MetaMask wallet with Ethermint.
 
 Instructions for adding the dymension-ethermint network to the metamask and sync an account.
 
