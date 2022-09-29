@@ -13,7 +13,7 @@ Install ignite: https://docs.ignite.com/guide/install
 Clone the dymension settlement repository:
 
 ```sh
-git clone git@github.com:dymensionxyz/dymension.git --branch v0.1.0-alpha && cd dymension
+git clone https://github.com/dymensionxyz/dymension.git --branch v0.1.0-alpha && cd dymension
 ```
 
 Build and init the chain:
@@ -41,7 +41,7 @@ sh scripts/run_local.sh
 Build the chain:
 
 ```sh
-git clone git@github.com:dymensionxyz/local-dymension.git && cd local-dymension
+git clone https://github.com/dymensionxyz/local-dymension.git && cd local-dymension
 
 export WORKSPACE_PATH=$HOME/workspace
 
