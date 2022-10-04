@@ -12,7 +12,7 @@ RUN git clone https://github.com/celestiaorg/celestia-node.git
 
 WORKDIR /app/celestia-node
 
-RUN git checkout tags/v0.3.0-rc1
+RUN git checkout tags/v0.3.1
 
 RUN make build && make cel-key
 
