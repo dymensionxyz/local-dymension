@@ -96,12 +96,18 @@ Initialize and attach a Sequencer to the rollapp:
 MONIKER_NAME="local"
 DESCRIPTION="{\"Moniker\":\"$MONIKER_NAME\",\"Identity\":\"\",\"Website\":\"\",\"SecurityContact\":\"\",\"Details\":\"\"}";
 CREATOR_ADDRESS="$(dymd keys show "$KEY_NAME" -a --keyring-backend test)"
-CREATOR_PUB_KEY="$(dymd keys show "$KEY_NAME" -p --keyring-backend test)"
+CREATOR_PUB_KEY="[10,32,240,168,86,204,92,175,25,200,177,126,91,59,1,62,58,142,225,222,7,40,5,64,53,144,42,48,218,76,112,151,113,14]"
 
 dymd tx sequencer create-sequencer "$CREATOR_ADDRESS" "$CREATOR_PUB_KEY" "$ROLLAPP_ID" "$DESCRIPTION" \
   --from "$KEY_NAME" \
   --chain-id "$CHAIN_ID" \
   --keyring-backend test
+```
+
+Make sure the rollap and the sequencer are added:
+```sh
+dymd q rollapp list-rollapp
+dymd q sequencer list-sequencer
 ```
 
 ## Run dymension rollapp
